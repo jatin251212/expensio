@@ -7,11 +7,13 @@ import { Button } from "./ui/button";
 import { usePathname } from "next/navigation";
 
 function Header() {
-  const pathname=usePathname();
+  const pathname = usePathname();
   const isHomepage = pathname === "/";
 
   return (
-    <div className={`p-4 flex justify-between items-center ${isHomepage ? "bg-blue-50" : "bg-white border-b bprder-blue-50"}`}>
+    <div
+      className={`p-4 flex justify-between items-center ${isHomepage ? "bg-blue-50" : "bg-white border-b bprder-blue-50"}`}
+    >
       <Link href="/" className="flex items-center">
         <Shield className="w-6 h-6 text-blue-600 mr-2" />
         <h1 className="text-xl font-semibold">Expensio</h1>
@@ -21,7 +23,7 @@ function Header() {
           <Link href="/receipts">
             <Button variant="outline">My Receipts</Button>
           </Link>
-          <Link href="/manage-plans">
+          <Link href="/manage-plan">
             <Button>Manage Plan</Button>
           </Link>
           <UserButton />
