@@ -7,11 +7,12 @@ async function SchematicComponent({ componentId }: { componentId?: string }) {
   if (!componentId) return null;
 
   const accessToken = await getTemporaryAccessToken();
+  console.log(accessToken);
 
   if (!accessToken) {
     throw new Error("Access token not found");
   }
-  return <SchematicEmbed accessToken={accessToken} componentId={componentId} />
+  return <SchematicEmbed accessToken={accessToken} componentId={componentId} />;
 }
 
 export default SchematicComponent;

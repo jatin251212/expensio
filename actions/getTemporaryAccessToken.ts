@@ -12,7 +12,7 @@ export async function getTemporaryAccessToken() {
   console.log("Getting temporary Access Token");
   const user = await currentUser();
   if (!user) {
-    console.log("No use found");
+    console.log("No user found");
     return null;
   }
 
@@ -22,8 +22,12 @@ export async function getTemporaryAccessToken() {
     resourceType: "company",
     lookup: { id: user.id },
   });
+
+  console.log(resp.data);
   console.log(
     "Token response recieved:",
     resp.data ? "Token recieved" : "Token not received",
   );
+
+  return resp.data?.token;
 }
