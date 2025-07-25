@@ -1,7 +1,12 @@
-import React from "react";
+"use client";
+
+import { useParams } from "next/navigation";
 
 function page() {
-  return <div>Invidual receipt page</div>;
+  // eslint-disable-next-line react-hooks/rules-of-hooks
+  const params = useParams();
+
+  return <div>Invidual receipt page : {params.id}</div>;
 }
 
 export default page;
